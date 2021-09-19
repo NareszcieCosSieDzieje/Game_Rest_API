@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_condition',
     'django_filters',
+    'drf_spectacular',
     #authentication
     # FIXME 'rest_framework.authtoken',
 ]
@@ -99,13 +100,25 @@ DATABASES = {
     }
 }
 
+# DEFAULT_RENDERER_CLASSES = (
+#     'rest_framework.renderers.JSONRenderer',
+# )
+
 # REST FRAMEWORK
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     # 'DEFAULT_PAGINATION_CLASS': 'utils.pagination.CustomPagination',
     'PAGE_SIZE': 5,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'GAME REST API',
+    # 'DESCRIPTION': 'A University Project',
+    'VERSION': '1.0.0',
+    # OTHER SETTINGS
 }
 
 # Password validation

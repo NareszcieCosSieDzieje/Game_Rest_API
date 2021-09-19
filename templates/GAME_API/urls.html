@@ -1,0 +1,10 @@
+{% extends "GAME_API/base.html" %}
+
+{% block urls %}
+    <h2>Available urls...</h2>
+    <ul>
+    {% for name, url in url_resources.items %}
+        <li><a href="{{ url }}">{{ name }}-{{ url }} </a></li>
+    {% endfor %}
+    </ul>
+{% endblock urls %}
